@@ -32,10 +32,14 @@ import logging
 
 @Client.on_message(filters.private & filters.user(ADMINS) & filters.command(["date"]))
 async def date(bot, message):
-    dat = await message.reply_text("Select your Date.........",quote=True,reply_markup=InlineKeyboardMarkup([[ 
-        			InlineKeyboardButton("Yesterday",callback_data='ystdy'), 
-        			InlineKeyboardButton("Today",callback_data = 'tdy'), 
-        			InlineKeyboardButton("Tommorow",callback_data='tmr') ]]))
+    dat = await message.reply_text("Select your Date.........",quote=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[ 
+                            InlineKeyboardButton("Yesterday",callback_data='ystdy'), 
+                            InlineKeyboardButton("Today",callback_data = 'tdy'), 
+                            InlineKeyboardButton("Tommorow",callback_data='tmr') 
+                ]]
+                                             ))
     
 
 @Client.on_message(filters.private & filters.user(ADMINS) & ~filters.text)
@@ -74,7 +78,7 @@ async def channel_post(client: Client, message: Message):
             Size = await get_size(media.file_size)
             await bot_msg.edit("Getting size....!")
             await asyncio.sleep(1)
-            Tlink = await conv_link(client , message)
+            Tlink = await convert_link(bot , message)
             await bot_msg.edit("Tlink generating....!")
             await asyncio.sleep(1)
             Slink = await get_short(SL_URL, SL_API, Tlink)
@@ -98,14 +102,6 @@ async def channel_post(client: Client, message: Message):
         await message.reply_photo(photo=pic, caption=FOMET.format(DATEDAY[-1], Eno[0], Size, Slink, Slink), quote = True))
 
 
-
-
-
-
-
-
-
-
 async def convert_link(bot, message):
     username = (await bot.get_me()).username
     file_type = message.media
@@ -117,3 +113,14 @@ async def convert_link(bot, message):
     share_link = f"https://t.me/{username}?start={outstr}"
     # await message.reply(f"<b>⭕ ʜᴇʀᴇ ɪs ʏᴏᴜʀ ʟɪɴᴋ:\n\n🔗 ᴏʀɪɢɪɴᴀʟ ʟɪɴᴋ :- {share_link}</b>")
     return share_link
+
+async def get_size(size):
+    """Get size in readable format"""
+
+    units = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB"]
+    size = float(size)
+    i = 0
+    while size >= 1024.0 and i < len(units):
+        i += 1
+        size /= 1024.0
+    return "%.1f %s" % (size, units[i])
