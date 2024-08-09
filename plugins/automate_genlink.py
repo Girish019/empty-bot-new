@@ -11,7 +11,7 @@ from pyrogram import filters, Client, enums
 from pyrogram.errors import FloodWait
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.errors.exceptions.bad_request_400 import ChannelInvalid, UsernameInvalid, UsernameNotModified
-from config import ADMINS, LOG_CHANNEL, PUBLIC_FILE_STORE, WEBSITE_URL, WEBSITE_URL_MODE
+from config import ADMINS, BOT_USERNAME, LOG_CHANNEL, PUBLIC_FILE_STORE, WEBSITE_URL, WEBSITE_URL_MODE
 from plugins.data import DATAODD, DATAEVEN ,BOTEFITMSG, FOMET
 from plugins.users_api import get_user, get_short_link
 from plugins.database import unpack_new_file_id
@@ -110,7 +110,7 @@ async def convert_link(client, message):
     string += file_id
     outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
     user_id = message.from_user.id
-    share_link = f"https://t.me/{username}?start={outstr}"
+    share_link = f"https://t.me/{BOT_USERNAME}?start={outstr}"
     # await message.reply(f"<b>⭕ ʜᴇʀᴇ ɪs ʏᴏᴜʀ ʟɪɴᴋ:\n\n🔗 ᴏʀɪɢɪɴᴀʟ ʟɪɴᴋ :- {share_link}</b>")
     return share_link
 
