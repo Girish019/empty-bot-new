@@ -16,6 +16,9 @@ from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import *
 from utils import verify_user, check_token, check_verification, get_token
 from config import *
+import pytz 
+import time
+from datetime import datetime, timedelta
 import re
 import json
 import base64
@@ -383,6 +386,7 @@ async def base_site_handler(client, m: Message):
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
+    india = pytz.timezone("Asia/Kolkata")
     if query.data == "close_data":
         await query.message.delete()
     elif query.data == "about":
