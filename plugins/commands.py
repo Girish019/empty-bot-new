@@ -474,10 +474,34 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )  
 
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
+    elif query.data == "ystdy":
+        DATEDAY.clear()
+        ye = datetime.now(india)-timedelta(1)
+        DATEDAY.append(str(ye.strftime("%d - %m - %Y")))
+        await query.message.edit_text(text = f"<b>Date change to :'{DATEDAY[-1]}'</b>", reply_markup=InlineKeyboardMarkup([[ 
+        			InlineKeyboardButton("Yesterday",callback_data='ystdy'), 
+        			InlineKeyboardButton("Today",callback_data = 'tdy'), 
+        			InlineKeyboardButton("Tommorow",callback_data='tmr') ]])) # A query msg edit for (in plugins->channel post->line 21) ==> this return a date from previous date stored in DATEDAY variable (line 10)
+        timeout(10)
+    elif query.data == "tdy":
+        DATEDAY.clear()
+        tda = datetime.now(india)
+        DATEDAY.append(str(tda.strftime("%d - %m - %Y")))
+        await query.message.edit_text(text = f"<b>Date change to :'{DATEDAY[-1]}'</b>", reply_markup=InlineKeyboardMarkup([[ 
+        			InlineKeyboardButton("Yesterday",callback_data='ystdy'), 
+        			InlineKeyboardButton("Today",callback_data = 'tdy'), 
+        			InlineKeyboardButton("Tommorow",callback_data='tmr') ]]))
+        
+    elif query.data == "tmr":
+        DATEDAY.clear()
+        tm = datetime.now(india)+timedelta(1)
+        DATEDAY.append(str(tm.strftime("%d - %m - %Y")))
+        await query.message.edit_text(text = f"<b>Date change to :'{DATEDAY[-1]}'</b>", reply_markup=InlineKeyboardMarkup([[ 
+        			InlineKeyboardButton("Yesterday",callback_data='ystdy'), 
+        			InlineKeyboardButton("Today",callback_data = 'tdy'), 
+        			InlineKeyboardButton("Tommorow",callback_data='tmr') ]]))
 
+    
     elif query.data.startswith("generate_stream_link"):
         _, file_id = query.data.split(":")
         try:
