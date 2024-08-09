@@ -23,9 +23,14 @@ API_HASH = environ.get("API_HASH", "d5e49fd3637cba407f17807d31c77977")
 BOT_TOKEN = environ.get("BOT_TOKEN", "5691558460:AAH_SbS5nYI1JZr6qNBiWlGAqZeW_7MHj24")
 
 PICS = (environ.get('PICS', 'https://graph.org/file/ce1723991756e48c35aa1.jpg')).split() # Bot Start Picture
+OWNER_ID = environ.get("OWNER_ID", "")
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
 BOT_USERNAME = environ.get("BOT_USERNAME", "PROFStrail_bot") # without @
 PORT = environ.get("PORT", "8080")
+# ADMINS.append(OWNER_ID)
+ADMINS.append(1147676731)
+ADMINS.append(1284476297)
+ADMINS.append(5636224141)
 
 # Clone Info :-
 CLONE_MODE = bool(environ.get('CLONE_MODE', True)) # Set True or False
@@ -46,6 +51,7 @@ AUTO_DELETE = int(environ.get("AUTO_DELETE", "30")) # Time in Minutes
 AUTO_DELETE_TIME = int(environ.get("AUTO_DELETE_TIME", "1800")) # Time in Seconds
 
 # Channel Information
+FILE_STORE_CHANNEL = int(environ.get("FILE_STORE_CHANNEL", "-1001842556179"))
 LOG_CHANNEL = int(environ.get("LOG_CHANNEL", "-1001748750847"))
 
 # File Caption Information
@@ -82,7 +88,7 @@ else:
     ON_HEROKU = False
 URL = environ.get("URL", "https://testofvjfilter-1fa60b1b8498.herokuapp.com/")
 
-
+PYTHON_VERSION = environ.get("PYTHON_VERSION", "3.10.8")
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
