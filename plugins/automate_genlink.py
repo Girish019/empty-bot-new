@@ -104,7 +104,7 @@ async def channel_post(client: Client, message: Message):
 
 async def convert_link(client, message):
     # username = (await bot.get_me()).username
-    username = "PROFStrial_bot"
+    # username = "PROFStrial_bot"
     file_type = message.media
     file_id, ref = unpack_new_file_id((getattr(message, file_type.value)).file_id)
     string = 'file_'
