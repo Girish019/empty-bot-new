@@ -124,3 +124,9 @@ async def get_size(size):
         i += 1
         size /= 1024.0
     return "%.1f %s" % (size, units[i])
+
+async def get_short(SL_URL, SL_API, Tlink):
+    response = requests.get(f"https://{SL_URL}/api?api={SL_API}&url={Tlink}")
+    data = response.json()
+    if data["status"] == "success" or rget.status_code == 200:
+        return data["shortenedUrl"]
