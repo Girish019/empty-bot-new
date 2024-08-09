@@ -77,7 +77,7 @@ async def channel_post(client: Client, message: Message):
             Size = await get_size(media.file_size)
             await bot_msg.edit("Getting size....!")
             await asyncio.sleep(1)
-            Tlink = await convert_link(bot , message)
+            Tlink = await convert_link(client , message)
             await bot_msg.edit("Tlink generating....!")
             await asyncio.sleep(1)
             Slink = await get_short(SL_URL, SL_API, Tlink)
@@ -101,8 +101,9 @@ async def channel_post(client: Client, message: Message):
         await message.reply_photo(photo=pic, caption=FOMET.format(DATEDAY[-1], Eno[0], Size, Slink, Slink), quote = True)
 
 
-async def convert_link(bot, message):
-    username = (await bot.get_me()).username
+async def convert_link(client, message):
+    # username = (await bot.get_me()).username
+    username = "PROFStrial_bot"
     file_type = message.media
     file_id, ref = unpack_new_file_id((getattr(message, file_type.value)).file_id)
     string = 'file_'
