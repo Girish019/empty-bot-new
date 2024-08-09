@@ -16,5 +16,5 @@ while True:
 
 
     send_message()
-    time.sleep(60)
+    time.sleep(3600)
     print("ok")
