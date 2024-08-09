@@ -60,20 +60,20 @@ async def channel_post(client: Client, message: Message):
             if int(DATEDAY[-1][0:2]) % 2 != 0:#chaeking for ODD by given date
                 if filname in DATAODD.keys(): #matching name in dict key with arrival video file name
                     await asyncio.sleep(1)
-                    chtid=int(DATAODD[filname][3])#for particular channel id
+                    # chtid=int(DATAODD[filname][3])#for particular channel id
                     pic=DATAODD[filname][0] #particuler images
                     SL_URL=DATAODD[filname][1] #for particuler domine name
                     SL_API=DATAODD[filname][2] #for particuler api 
-                   # chtid=message.chat.id # if you want pic+formet into bot pm     
+                   chtid=message.chat.id # if you want pic+formet into bot pm     
         
             elif int(DATEDAY[-1][0:2]) % 2 == 0: #checking for EVEN
                 if filname in DATAEVEN.keys():
                     await asyncio.sleep(1)
-                    chtid=int(DATAEVEN[filname][3])
+                    # chtid=int(DATAEVEN[filname][3])
                     pic=DATAEVEN[filname][0]
                     SL_URL=DATAEVEN[filname][1]
                     SL_API=DATAEVEN[filname][2]
-                    # chtid=message.chat.id # if you want pic+formet into bot pm
+                    chtid=message.chat.id # if you want pic+formet into bot pm
             Size = await get_size(media.file_size)
             await bot_msg.edit("Getting size....!")
             await asyncio.sleep(1)
