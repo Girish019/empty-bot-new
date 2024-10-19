@@ -41,7 +41,7 @@ from Script import script
 from datetime import date, datetime 
 import pytz
 from aiohttp import web
-from TechVJ.server import web_server
+# from TechVJ.server import web_server
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
@@ -93,14 +93,14 @@ async def start():
     today = date.today()
     now = datetime.now(tz)
     time = now.strftime("%H:%M:%S %p")
-    app = web.AppRunner(await web_server())
+    # app = web.AppRunner(await web_server())   #-----------
     await StreamBot.send_message(chat_id=LOG_CHANNEL, text=script.RESTART_TXT.format(today, time))
-    await app.setup()
+    # await app.setup()               #----------------------
     bind_address = "0.0.0.0"
-    await web.TCPSite(app, bind_address, PORT).start()
+    # await web.TCPSite(app, bind_address, PORT).start()     #---------------------
     if CLONE_MODE == True:
         await restart_bots()
-    print("Bot Started Powered By @VJ_Botz")
+    print("Bot Started Powered By UV-apps")
     await idle()
 
 # Don't Remove Credit Tg - @VJ_Botz
