@@ -20,7 +20,9 @@ def is_enabled(value, default):
 # Bot Information
 API_ID = int(environ.get("API_ID", "10755921"))
 API_HASH = environ.get("API_HASH", "d5e49fd3637cba407f17807d31c77977")
-BOT_TOKEN = environ.get("BOT_TOKEN", "")
+BOT_TOKEN = environ.get("BOT_TOKEN","1677559691:AAFSzVlg46NhmtNOYdMU08NVuWy6s0KBbYM")  # zee5cc
+# BOT_TOKEN = environ.get("BOT_TOKEN",  "6137898485:AAEzJaeA-K784RS-xN3Q_EzcL_uXA1WkxQA")  # lmc
+
 
 PICS = (environ.get('PICS', 'https://graph.org/file/ce1723991756e48c35aa1.jpg')).split() # Bot Start Picture
 OWNER_ID = environ.get("OWNER_ID", "")
@@ -33,7 +35,7 @@ ADMINS.append(1284476297)
 ADMINS.append(5636224141)
 
 # Clone Info :-
-CLONE_MODE = bool(environ.get('CLONE_MODE', True)) # Set True or False
+# CLONE_MODE = bool(environ.get('CLONE_MODE', True)) # Set True or False
 
 # If Clone Mode Is True Then Fill All Required Variable, If False Then Don't Fill.
 CLONE_DB_URI = environ.get("CLONE_DB_URI", "mongodb+srv://Tessa:tessa33@practice1.3mqtowb.mongodb.net/?retryWrites=true&w=majority")
