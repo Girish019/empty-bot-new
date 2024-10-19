@@ -11,10 +11,6 @@ from pyrogram import idle
 import logging
 import logging.config
 
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
-
 # Get logging configurations
 logging.config.fileConfig('logging.conf')
 logging.getLogger().setLevel(logging.INFO)
@@ -26,10 +22,6 @@ logging.basicConfig(
 )
 logging.getLogger("aiohttp").setLevel(logging.ERROR)
 logging.getLogger("aiohttp.web").setLevel(logging.ERROR)
-
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
 
 
 from pyrogram import Client, __version__
@@ -43,30 +35,18 @@ import pytz
 from aiohttp import web
 # from TechVJ.server import web_server
 
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
-
 import asyncio
 from pyrogram import idle
-from plugins.clone import restart_bots
+# from plugins.clone import restart_bots
 from Main import StreamBot
 from Main.utils.keepalive import ping_server
 from Main.clients import initialize_clients
-
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
 
 
 ppath = "plugins/*.py"
 files = glob.glob(ppath)
 StreamBot.start()
 loop = asyncio.get_event_loop()
-
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
 
 
 async def start():
@@ -98,14 +78,10 @@ async def start():
     # await app.setup()               #----------------------
     bind_address = "0.0.0.0"
     # await web.TCPSite(app, bind_address, PORT).start()     #---------------------
-    if CLONE_MODE == True:
-        await restart_bots()
+    # if CLONE_MODE == True:            #---------------------
+    #     await restart_bots()            #---------------------
     print("Bot Started Powered By UV-apps")
     await idle()
-
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
 
 if __name__ == '__main__':
     try:
