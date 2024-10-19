@@ -10,7 +10,7 @@ COPY requirements.txt /requirements.txt
 
 RUN cd /
 RUN pip3 install -U pip && pip3 install -U -r requirements.txt
-RUN mkdir /UV-bot
-WORKDIR /UV-bot
-COPY . /UV-bot
+RUN mkdir /UV-app
+WORKDIR /UV-app
+COPY . /UV-app
 CMD ["python", "bot.py"]
